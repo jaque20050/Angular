@@ -3,46 +3,63 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-data-binding',
   templateUrl: './data-binding.component.html',
-  styleUrls: ['./data-binding.component.css']
+  styleUrls: ['./data-binding.component.css'],
 })
 export class DataBindingComponent implements OnInit {
-
-  url: string =  'http://loiane.com';
+  url: string = 'http://loiane.com';
   cursoAngular: boolean = true;
-  urlImagem ="https://picsum.photos/seed/picsum/400/200";
+  urlImagem = 'https://picsum.photos/seed/picsum/400/200';
 
-  valorAtual: string ='';
+  valorAtual: string = '';
   valorSalvo = '';
 
   isMouseOver: boolean = false;
 
-  getValor(){
+  nome: string = 'adc';
+
+  pessoa: any = {
+    nome: 'Jaqueline',
+    idade: 24
+  }
+
+  getValor() {
     return 1;
   }
 
-  getCurtitCurso(){
+  getCurtitCurso() {
     return true;
   }
 
-  botaoClicado(){
+  botaoClicado() {
     alert('Botão clicado!');
   }
 
-  onKeyUp(evento: KeyboardEvent){
+  /*onKeyUp(evento: KeyboardEvent){
     this.valorAtual = (<HTMLInputElement>evento.target).value;
-  }
+  }*/
 
-  salvarValor(valor:any){
+  salvarValor(valor: any) {
     this.valorSalvo = valor;
   }
 
-  onMouseOverOut(){
+  onMouseOverOut() {
     this.isMouseOver = !this.isMouseOver;
   }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  onKeyUp(evento: KeyboardEvent) {
+    this.nome = (<HTMLInputElement>evento.target).value;
   }
 
+  //$event.target.value
+  getValue(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+
+  //([ngmodel])
+  setValueName(event: Event): string {
+    return (event.target as HTMLInputElement).value;
+  }
+  constructor() {}
+
+  ngOnInit(): void {}
 }
