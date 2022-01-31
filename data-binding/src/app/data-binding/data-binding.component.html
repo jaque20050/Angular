@@ -107,7 +107,7 @@
 </section---->
  
 
-<section class="two-way-binding">
+<!---section class="two-way-binding">
     <article>
       <h3>Two-way data binding</h3>
       <div>
@@ -117,16 +117,16 @@
         (keyup)="onKeyUp($event)"
         /> 
 
-        <!-----$event.target.value----->
+        $event.target.value
        <input 
        [value]="nome"
        (input)="nome = getValue($event)"
        />
 
-       <!-----([ngmodel])----->
+      ([ngmodel])
        <input [(ngModel)]="nome" #ctrlName="ngModel" required>
 
-       <!-----([ngmodel])----->
+       ([ngmodel])
        <input bindon-ngModel="nome" #ctrlName="ngModel" required>
 
       
@@ -135,11 +135,23 @@
 
       <div>
 
-        <!-----([ngmodel])----->
+      ([ngmodel])
         <p>Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de idade.</p>
       <input [(ngModel)]="pessoa.nome" #ctrlName="ngModel" required>
       <input [(ngModel)]="pessoa.idade" #ctrlName="ngModel" required>
 
       </div>
     </article>
+</section--->
+
+<section class="input-output-properties">
+
+  <article>
+    <h3>
+      Input/Output Properties
+    </h3>
+
+    <app-curso [nome] ="nomeDoCurso"></app-curso>
+
+  </article>
 </section>
